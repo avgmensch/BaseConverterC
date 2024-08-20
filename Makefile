@@ -4,9 +4,9 @@ EXECUTABLE = cv
 
 # Compiler and linker
 CC = gcc
-CFLAGS = -Wall -Wextra -Os -MMD -MP -c
+CFLAGS = -Wall -Wextra -Os
 LD = gcc
-LDFLAGS = -s
+LDFLAGS = -s -lm
 
 # Code formatter
 FMT = astyle
@@ -32,7 +32,7 @@ $(EXECUTABLE): $(OBJ_FILES)
 -include $(wildcard $(OBJ_DIR)*.d)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(MAKEFILE) | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -o $@ $<
+	$(CC) $(CFLAGS) -MMD -MP -c -o $@ $<
 
 $(OBJ_DIR):
 	mkdir -p $@

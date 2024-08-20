@@ -1,10 +1,9 @@
-#include <stdio.h>
 #include "base36.h"
 
-// For more information on how there functions work, please refer to the ASCII table
-// and how C handles number. https://en.cppreference.com/w/cpp/language/ascii
+// For more information on how these functions work, please refer to the ASCII table
+// and how C handles characters. https://en.cppreference.com/w/cpp/language/ascii
 
-int base36_to_dec(char base36)
+int base36_to_dec_digit(char base36)
 {
     // 0 - 9 (decimal)
     if (base36 >= '0' && base36 <= '9')
@@ -25,7 +24,7 @@ int base36_to_dec(char base36)
     return -1;
 }
 
-char dec_to_base36(int base10)
+char dec_to_base36_digit(int base10)
 {
     // 0 - 9 (decimal)
     if (base10 >= 0 && base10 <= 9)

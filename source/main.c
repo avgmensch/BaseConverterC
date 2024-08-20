@@ -1,16 +1,17 @@
-#include <stdio.h>
-#include "base36.h"
+#include <stdio.h> // printf
+#include "converter.h"
 
 int main()
 {
-    printf("FROM | BASE-36 | BASE-10\n");
-    for (int i = 0; i <= 35; i++)
+    printf("FROM | TO | BACK\n");
+    for (int i = 10; i <= 270; i+=10)
     {
-        printf("%4i | ", i);
-        char base36 = dec_to_base36(i);
-        printf("      %c | ", base36);
-        int dec = base36_to_dec(base36);
-        printf("%7i\n", dec);
+        printf("%i | ", i);
+        Number *base_16 = dec_to_any_base(i, 16);
+        printf("%s | ", base_16->number);
+        int64_t base_10 = any_base_to_dec(base_16);
+        printf("%li\n", base_10);
+        del_number(base_16);
     }
     return 0;
 }
