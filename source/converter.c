@@ -4,6 +4,13 @@
 #include "converter.h"
 #include "base36.h"
 
+void clean_base36_string_in_place(char **orig)
+{
+    char *sanitized = sanitize_base36_string(*orig);
+    free(*orig);
+    *orig = sanitized;
+}
+
 Number *new_number(int base, int length, char *number)
 {
     Number *ptr = (Number*)malloc(sizeof(Number));

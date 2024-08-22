@@ -1,17 +1,19 @@
 #include <stdio.h> // printf
 #include "converter.h"
 
+// TODO: remove
+#include <stdlib.h>
+
 int main()
 {
-    printf("FROM | TO | BACK\n");
-    for (int i = 10; i <= 270; i+=10)
-    {
-        printf("%i | ", i);
-        Number *base_16 = dec_to_any_base(i, 16);
-        printf("%s | ", base_16->number);
-        int64_t base_10 = any_base_to_dec(base_16);
-        printf("%li\n", base_10);
-        del_number(base_16);
-    }
+    char *invalid_str = (char*)malloc(sizeof(char)*6);
+    invalid_str[0] = '<';
+    invalid_str[1] = 'F';
+    invalid_str[2] = ',';
+    invalid_str[3] = 'F';
+    invalid_str[4] = '.';
+    invalid_str[5] = '\0';
+    clean_base36_string_in_place(&invalid_str);
+    printf("%s\n", invalid_str);
     return 0;
 }

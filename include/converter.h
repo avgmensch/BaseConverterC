@@ -3,6 +3,12 @@
 
 #include <stdint.h> // int64_t
 
+/**
+ * Remove any non base-36 characters from a string in place.
+ * @param orig Pointer to the pointer to the string, that should be cleaned.
+ */
+void clean_base36_string_in_place(char **orig);
+
 /** Store a number in any base from `2` to `36`. */
 typedef struct Number
 {
